@@ -6,9 +6,9 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
+const dotenv = require('dotenv').config();
 
-const mongoDb = 'mongodb+srv://luciofurnari99:raRShoxcniYxICoe@cluster0.32evd56.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(mongoDb);
+mongoose.connect(process.env.MONGODB_URL);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongo connection error'));
 
